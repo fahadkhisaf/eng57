@@ -15,5 +15,14 @@ Tables:
 column are vertical and rows are horizontal
 columns are attributes
 
-``` 
+```
+```
+database/ tabels relationships:
+- one to one  
+- one to many
+- many to many
+```
+Primary key must be unique
 - Normalisation
+- setting up docker with vm for Saskia
+-
