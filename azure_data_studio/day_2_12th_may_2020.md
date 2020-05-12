@@ -79,6 +79,107 @@ DELETE FROM film_t WHERE film_name='sharkA'
 
 
 -- ON DELETE CASCADE 
+``` sql
+SELECT * FROM Customers
+Where City = 'Paris'
+
+SELECT * FROM Employees
+WHERE City = 'London'
+
+-- COUNT HOW MANY EMPLOYEES IN EMPLOYEE TABLE
+SELECT COUNT(EmployeeID) AS "Numer of Employees " FROM Employees
+
+-- WHICH EMPLOYEE IS A DOCKER IN EMPLOYEE TABLE
+SELECT * FROM Employees WHERE TitleOfCourtesy = 'Dr.' 
+
+-- HOW MANY PRODUCTS ARE DISCONTINUED IN PRODUCTS TABLE
+
+SELECT COUNT(Discontinued) AS "Number of Products discontinued"
+FROM Products 
+WHERE Discontinued !=0
+
+-- FIND THE COMPANYNAME CITY COUNTRY OF REGION BC
+SELECT CompanyName, City, Country,Region FROM Customers WHERE Region = 'BC' 
+
+-- FIND THE CUSTOMERS ID OF FRENCH CUSTOMERS
+SELECT CustomerID, City From Customers WHERE Country = 'France'
+
+-- ORDER BY CLUASE TO GET TOP 100
+
+SELECT TOP 100 CompanyName FROM Customers WHERE 
+
+-- AND KEY WORD AS A CONDITION
+SELECT ProductName, UnitPrice FROM Products WHERE CategoryID = 1 AND Discontinued = '0'
+
+-- Distint key word is used to avoid duplication
+
+SELECT DISTINCT c.Country 
+FROM Customers c
+where c.ContactTitle = 'Owner' AND c.Country LIKE '[^Denmark]E%'
+
+-- wildcard charactors 'A%' _ refers to 
+
+--
+SELECT COUNT(*)
+FROM Products p
+where p.UnitPrice >0 AND p.UnitPrice>29.99
+
+SELECT ProductName, UnitPrice FROM Products WHERE ProductName LIKE 'ch%'
+-- LIKE OPERATOR
+SELECT *
+FROM Customers WHERE Region LIKE '_A'
+
+-- IN OPERATOR
+SELECT COUNT(*)
+FROM Customers c
+WHERE c.Region IN ('london','singapor')
+
+
+-- between operator
+SELECT * FROM EmployeeTerritories
+WHERE TerritoryID BETWEEN 06800 AND 09000 
+
+-- what are the names and products ids of the products with a unit below 5.00
+
+SELECT p.ProductName, p.productID FROM Products p  WHERE p.UnitPrice <5.00 
+
+-- which categories have a category name with initial begining with B or S
+
+SELECT * FROM Categories
+where CategoryName Like '[bs]%'
+
+-- How many orders are there for EmployeeIDs 5 and 7 (total of both)
+SELECT * FROM Employees
+SELECT COUNT(o.EmployeeID) AS "Number of orders"
+FROM Orders o
+where EmployeeID in (5,7)
+-- good practice
+
+SELECT COUNT(*) AS "Number of orders"
+FROM Orders o
+GROUP BY EmployeeID
+HAVING EmployeeID in (5,7)
+
+-- concatenation
+-- SELECT * FROM Customers
+
+SELECT c.CompanyName AS "Company Name", c.City + ', ' + c.Country 'City'
+FROM Customers c
+
+--- concatenate first and last name from employee table 
+
+SELECT c.FirstName + ' ' + c.LastName AS "Employee name"  
+FROM Employees c
+
+-- is NULL or is NOT null
+SELECT Region, c.CompanyName AS "Company Name", c.City + ', ' + c.Country 'City'
+FROM Customers c where Region is null 
+
+--- select statement to list the six counties that have region codes in the customers table
+SELECT DISTINCT c.Country
+FROM Customers c
+where c.Region is null 
 ```
+
 
 
