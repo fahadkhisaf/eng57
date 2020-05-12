@@ -18,7 +18,7 @@ columns are attributes
 ``` 
 ``` sql
 
-CREATE DATABASE shah_khan_db
+CREATE DATABASE shah_khan_db add
 USE shah_khan_db
 
 CREATE TABLE film_tab
